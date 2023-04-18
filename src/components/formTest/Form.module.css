@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin: 0.5rem;
+  height: 1.5rem;
+}
+
+.button {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  height: 2rem;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  border: 5px solid rgb(31, 100, 123);
+  background: transparent;
+  color: white;
+  font-weight: 900;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgb(31, 100, 123);
+}

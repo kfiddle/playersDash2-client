@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import Layout from "./components/layout/Layout";
+import LoginBox from "./components/loginBox/LoginBox";
+import Dashboard from "./components/dashboard/Dashboard";
+
+import useGet from "./hooks/useGet";
+
+import { gigsActions } from "./store/Gigs";
+
+import "./App.css";
 
 function App() {
+  const auth = useSelector((state) => state.auth);
+  const { loggedIn } = auth;
+
+  const dispatch = useDispatch();
+  const getter = useGet();
+
+  useEffect(() => {
+    const getAllGigs = async () => {
+      const gigsResponse = await getter('gigs');
+      if (gigsResponse.ok) {
+        const jsonifiedGigs = await gigsResponse.json();
+        console.log(jsonifiedGigs)
+        dispatch(gigsActions.setGigs(jsonifiedGigs));
+      }
+    };
+
+    getAllGigs();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      {!loggedIn && <LoginBox />}
+      {loggedIn && <Dashboard />}
+
+      {/* <Form /> */}
+    </Layout>
   );
 }
 

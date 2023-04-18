@@ -1,0 +1,118 @@
+.header {
+  width: 95%;
+  height: 5.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  padding: 5% 0%;
+
+  /* background: rgb(123, 150, 199); */
+}
+
+h2 {
+  color: rgb(58, 78, 96);
+  font-size: 1.75rem;
+  font-style: italic;
+}
+
+.titleDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.75rem;
+  color: rgb(227, 212, 212);
+  font-weight: 700;
+  margin-right: 0;
+  margin-left: 2rem;
+  /* text-shadow: .5px .5px rgb(243, 237, 237); */
+}
+
+.menuButton {
+  border-radius: 2rem;
+  border: transparent;
+  padding: .5rem 1rem;
+  color: rgb(227, 212, 212);
+  /* font-size: 1rem; */
+  font-weight: bold;
+  background: rgb(232, 232, 238);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(53, 59, 70, 0.992) 1%,
+    rgb(181, 184, 185) 100%
+  );
+}
+
+.iconDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoutIcon {
+  color: rgb(155, 9, 9);
+  font-size: 3rem;
+}
+
+.logoutIcon:hover {
+  color: rgb(213, 4, 4);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-left: 3.5rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.newFormDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  white-space: nowrap;
+  margin-left: 0;
+}
+
+.newFormDiv li {
+  font-size: 10px;
+}
+
+.nav a,
+.navItem {
+  text-decoration: none;
+  color: rgb(216, 67, 47);
+}
+
+.navItem:hover,
+.nav a:hover,
+.nav a:active,
+.nav a.active {
+  color: #e2f53a;
+}
+
+.active {
+  color: #f7bc1b;
+}
+
+.navItem {
+  cursor: pointer;
+}
+
+/* @media (max-width: 600px) {
+      .header {
+        background: rebeccapurple;
+      }
+    } */
