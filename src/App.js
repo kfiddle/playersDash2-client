@@ -21,10 +21,10 @@ function App() {
 
   useEffect(() => {
     const getAllGigs = async () => {
-      const gigsResponse = await getter('gigs');
+      const gigsResponse = await getter("gigs");
       if (gigsResponse.ok) {
         const jsonifiedGigs = await gigsResponse.json();
-        console.log(jsonifiedGigs)
+        console.log(jsonifiedGigs);
         dispatch(gigsActions.setGigs(jsonifiedGigs));
       }
     };
@@ -36,8 +36,6 @@ function App() {
     <Layout>
       {!loggedIn && <LoginBox />}
       {loggedIn && <Dashboard />}
-
-      {/* <Form /> */}
     </Layout>
   );
 }
