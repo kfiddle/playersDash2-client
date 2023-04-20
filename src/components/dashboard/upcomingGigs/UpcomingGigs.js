@@ -14,12 +14,12 @@ const UpcomingGigs = () => {
 
   const getter = useGet();
 
-  console.log(allGigs)
+  // console.log(allGigs)
 
   useEffect(() => {
     const getGigs = async () => {
       const playerGigs = await getter(
-        `tabs/playerGigs/player_id/${loggedInPlayer.id}`
+        `playerGigs/${loggedInPlayer.id}`
       );
         if (playerGigs.length > 0) setGigs(playerGigs)
     };
