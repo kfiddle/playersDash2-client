@@ -14,25 +14,39 @@ const UpcomingGigs = () => {
 
   const getter = useGet();
 
-  console.log(gigs)
+  console.log(gigs);
 
   useEffect(() => {
     const getGigs = async () => {
-      const playerGigs = await getter(`players/gigs-of-player/${loggedInPlayer.id}`);
+      const playerGigs = await getter(
+        `players/gigs-of-player/${loggedInPlayer.id}`
+      );
       if (playerGigs.length > 0) setGigs(playerGigs);
     };
 
     getGigs();
   }, []);
 
+  const gigsCopy = [...gigs];
+  const sortedGigs = gigsCopy.sort((gig1, gig2) => {
+    if (gig1.date < gig2.date) return -1;
+    if (gig1.date > gig2.date) return 1;
+    return 0;
+  });
+
   const displayableGigs =
     gigs.length > 0
-      ? gigs.map((gig) => (
-          <UpcomingGig key={gigs.indexOf(gig)} title={gig.title} />
-        ))
+      ? gigs
+          // .sort((gig1, gig2) => {
+          //   if (gig1.date < gig2.date) return -1;
+          //   if (gig1.date > gig2.date) return 1;
+          //   return 0;
+          // })
+
+          .map((gig) => <UpcomingGig key={gigs.indexOf(gig)} gig={gig} />)
       : "";
 
-  return <div>{displayableGigs}</div>;
+  return <div className={styles.outerContainer}>{displayableGigs}</div>;
 };
 
 export default UpcomingGigs;
