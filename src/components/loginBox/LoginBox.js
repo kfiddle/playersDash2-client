@@ -33,7 +33,6 @@ const LoginBox = () => {
   const sendItUp = async () => {
     let usersList = await getter("players");
     if (!usersList) return console.log("failed to retrieve user details list");
-    console.log(usersList)
 
     const player = usersList.find(
       (u) => u.username === user.username && u.password === user.password
