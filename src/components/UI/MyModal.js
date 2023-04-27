@@ -12,12 +12,12 @@ const MyModal = ({ handleCloser, formType, fullscreen }) => {
 
   const submitClicker = () => setSubmitClicked(true);
 
-  const addingEntity = formType[0].toUpperCase() + formType.slice(1, -3);
+  const title = formType[0].toUpperCase() + formType.slice(1);
 
   return (
     <Modal show={show} fullscreen={fullscreen} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Add {addingEntity} </Modal.Title>
+        <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         I WILL BE A MODAL BODY

@@ -12,8 +12,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import MyModal from "../../../UI/MyModal";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 import { GIG_OPTIONS } from "../../../../constants/Constants";
 
@@ -64,41 +64,16 @@ const UpcomingGig = ({ gig }) => {
             <div>{dress}</div>
             <div>Rep List</div>
             <div>Parking</div>
-            <button onClick={optionsClicker}>OPTIONS</button>
+            <button className={styles.optionsButton} onClick={optionsClicker}>GIG OPTIONS</button>
           </AccordionDetails>
         </Accordion>
       </Card>
       {optionsClicked && (
-        // <MyModal
-        //   handleCloser={handleCloser}
-        //   formType={GIG_OPTIONS}
-        //   fullscreen={true}
-        // />
-
-        <Modal show={true} fullscreen={true} onHide={handleCloser}>
-          <Modal.Header closeButton>
-            <Modal.Title>addingEntity </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            I WILL BE A MODAL BODY
-            {/* {formType === Constants.GIG_OPTIONS && (
-            <AddPlayerForm
-              submitClicked={submitClicked}
-              setSubmitClicked={setSubmitClicked}
-              handleClose={handleClose}
-            />
-          )} */}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloser}>
-              <h5>Close</h5>
-            </Button>
-
-            <Button variant="primary">
-              <h5>Submit</h5>
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <MyModal
+          handleCloser={handleCloser}
+          formType={GIG_OPTIONS}
+          fullscreen={true}
+        />
       )}
     </Fragment>
   );
