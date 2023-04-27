@@ -1,4 +1,10 @@
 .main {
-  margin: 10rem auto;
+  margin: 6rem auto;
+  padding-top: 4rem;
   align-items: center;
+}
+
+.layoutBody {
+  background: #aeaaaa;
+  height: 100vh;
 }

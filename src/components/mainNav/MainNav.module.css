@@ -1,12 +1,13 @@
 .header {
-  width: 95%;
-  height: 5.2rem;
+  width: 100%;
+  height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   padding: 5% 0%;
+  background: #aeaaaa;
 
   /* background: rgb(123, 150, 199); */
 }
