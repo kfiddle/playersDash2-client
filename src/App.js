@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Layout from "./components/layout/Layout";

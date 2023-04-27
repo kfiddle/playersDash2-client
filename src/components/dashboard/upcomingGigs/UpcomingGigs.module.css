@@ -2,4 +2,5 @@
 
 .outerContainer {
     display: grid;
+    margin-top: 2rem;
 }
