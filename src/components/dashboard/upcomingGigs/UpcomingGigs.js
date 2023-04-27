@@ -37,12 +37,14 @@ const UpcomingGigs = () => {
   const displayableGigs =
     gigs.length > 0
       ? gigs
-          // .sort((gig1, gig2) => {
-          //   if (gig1.date < gig2.date) return -1;
-          //   if (gig1.date > gig2.date) return 1;
-          //   return 0;
-          // })
+          .sort((gig1, gig2) => {
+            const gig1Date = new Date(gig1.date);
+            const gig2Date = new Date(gig2.date);
 
+            if (gig1Date < gig2Date) return -1;
+            if (gig1Date > gig2Date) return 1;
+            return 0;
+          })
           .map((gig) => <UpcomingGig key={gigs.indexOf(gig)} gig={gig} />)
       : "";
 
