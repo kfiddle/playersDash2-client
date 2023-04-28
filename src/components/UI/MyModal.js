@@ -1,26 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import * as Constants from "../../constants/Constants";
 
-const MyModal = ({ handleCloser, formType, fullscreen }) => {
+import useGet from "../../hooks/useGet";
+
+const MyModal = ({ handleCloser, formType, fullscreen, gig }) => {
   const [show, setShow] = useState(true);
-  const [submitClicked, setSubmitClicked] = useState(false);
+  const { id, title, date, venue, address, parking, dress } = gig;
+
+  const getter = useGet();
+
+  useEffect(() => {
+    const getDress = async () => {
+      const fullDress = await getter(`dress-codes/${id}`);
+    };
+
+    getDress();
+  });
 
   const handleClose = () => handleCloser();
-
-  const submitClicker = () => setSubmitClicked(true);
-
-  const title = formType[0].toUpperCase() + formType.slice(1);
+  const printTitle = formType[0].toUpperCase() + formType.slice(1);
 
   return (
     <Modal show={show} fullscreen={fullscreen} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
+        <Modal.Title>{printTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        I WILL BE A MODAL BODY
+        <div>Venue: {gig.venue} </div>
+        <div>Address: {gig.address} </div>
+        <div>Full Dress: {gig.dress}</div>
+
         {/* {formType === Constants.GIG_OPTIONS && (
             <AddPlayerForm
               submitClicked={submitClicked}
@@ -32,10 +44,6 @@ const MyModal = ({ handleCloser, formType, fullscreen }) => {
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           <h5>Close</h5>
-        </Button>
-
-        <Button variant="primary" onClick={submitClicker}>
-          <h5>Submit</h5>
         </Button>
       </Modal.Footer>
     </Modal>
