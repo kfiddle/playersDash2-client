@@ -14,8 +14,6 @@ const UpcomingGigs = () => {
 
   const getter = useGet();
 
-  console.log(gigs);
-
   useEffect(() => {
     const getGigs = async () => {
       const playerGigs = await getter(

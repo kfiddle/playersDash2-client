@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const getAllGigs = async () => {
       const gigsResponse = await getter("gigs");
-      if (gigsResponse.ok) {
+      if (gigsResponse) {
         const jsonifiedGigs = await gigsResponse.json();
         console.log(jsonifiedGigs);
         dispatch(gigsActions.setGigs(jsonifiedGigs));

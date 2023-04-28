@@ -11,7 +11,7 @@ import {
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import MyModal from "../../../UI/MyModal";
+import GigModal from "../../../UI/GigModal";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -61,16 +61,15 @@ const UpcomingGig = ({ gig }) => {
           </AccordionSummary>
           <AccordionDetails sx={accordStyles}>
             <div>{venue}</div>
-            <div>{dress}</div>
-            <div>Rep List</div>
-            <div>Parking</div>
+            <div>DRESS: {dress}</div>
+            <div>PARKING: {parking}</div>
             <button className={styles.optionsButton} onClick={detailsClicker}>DETAILS</button>
             <button className={styles.optionsButton} onClick={detailsClicker}>CANCEL GIG</button>
           </AccordionDetails>
         </Accordion>
       </Card>
       {detailsClicked && (
-        <MyModal
+        <GigModal
           handleCloser={handleCloser}
           formType={GIG_DETAILS}
           fullscreen={true}

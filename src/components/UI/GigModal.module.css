@@ -1,0 +1,21 @@
+.body {
+  font-weight: 500;
+}
+
+.div {
+  margin: .25rem 0rem;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.dressDiv {
+  margin: 0rem 1rem;
+}
+
+.ellipseDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
