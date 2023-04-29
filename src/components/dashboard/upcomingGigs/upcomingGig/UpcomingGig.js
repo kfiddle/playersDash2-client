@@ -15,13 +15,15 @@ import GigModal from "../../../UI/GigModal";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-import { GIG_DETAILS, } from "../../../../constants/Constants";
+import { GIG_DETAILS } from "../../../../constants/Constants";
 
 import styles from "./UpcomingGig.module.css";
+import CancelModal from "../../../UI/CancelModal";
 
 const UpcomingGig = ({ gig }) => {
   const { title, date, venue, address, parking, dress } = gig;
   const [detailsClicked, setDetailsClicked] = useState(false);
+  const [cancelClicked, setCancelClicked] = useState(false);
 
   const accordStyles = {
     background: "#3A4E60",
@@ -41,8 +43,13 @@ const UpcomingGig = ({ gig }) => {
     setDetailsClicked(true);
   };
 
+  const cancelClicker = () => {
+    setCancelClicked(true);
+  };
+
   const handleCloser = () => {
     setDetailsClicked(false);
+    setCancelClicked(false);
   };
 
   return (
@@ -63,8 +70,12 @@ const UpcomingGig = ({ gig }) => {
             <div>{venue}</div>
             <div>DRESS: {dress}</div>
             <div>PARKING: {parking}</div>
-            <button className={styles.optionsButton} onClick={detailsClicker}>DETAILS</button>
-            <button className={styles.optionsButton} onClick={detailsClicker}>CANCEL GIG</button>
+            <button className={styles.optionsButton} onClick={detailsClicker}>
+              DETAILS
+            </button>
+            <button className={styles.optionsButton} onClick={cancelClicker}>
+              CANCEL GIG
+            </button>
           </AccordionDetails>
         </Accordion>
       </Card>
@@ -76,6 +87,7 @@ const UpcomingGig = ({ gig }) => {
           gig={gig}
         />
       )}
+      {cancelClicked && <CancelModal handleCloser={handleCloser} />}
     </Fragment>
   );
 };

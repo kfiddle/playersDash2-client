@@ -38,7 +38,9 @@ const GigModal = ({ handleCloser, formType, fullscreen, gig }) => {
   const displayablePieces =
     repList.length > 0
       ? repList.map((piece) => (
-          <div key={repList.indexOf(piece)}>{piece.title}</div>
+          <div key={repList.indexOf(piece)}>
+            {piece.title} -{piece.composerLast}
+          </div>
         ))
       : "";
 
@@ -59,15 +61,20 @@ const GigModal = ({ handleCloser, formType, fullscreen, gig }) => {
         <div className={styles.div}>
           <span className={styles.label}>FULL DRESS: </span>
         </div>
-        {dressList && <div className={styles.dressDiv}>{dressList[0]}</div>}
+        {dressList && <div className={styles.indentDiv}>{dressList[0]}</div>}
         <div className={styles.ellipseDiv}>
           <FaEllipsisH />
         </div>
-        {dressList && <div className={styles.dressDiv}>{dressList[1]}</div>}
+        {dressList && <div className={styles.indentDiv}>{dressList[1]}</div>}
         <div className={styles.ellipseDiv}>
           <FaEllipsisH />
         </div>
-        {repList && displayablePieces}
+        {repList && (
+          <div className={styles.div}>
+            <span className={styles.label}>PROGRAM: </span>
+            <div className={styles.indentDiv}>{displayablePieces}</div>
+          </div>
+        )}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
