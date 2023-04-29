@@ -38,8 +38,8 @@ const GigModal = ({ handleCloser, formType, fullscreen, gig }) => {
   const displayablePieces =
     repList.length > 0
       ? repList.map((piece) => (
-          <div key={repList.indexOf(piece)}>
-            {piece.title} -{piece.composerLast}
+          <div key={repList.indexOf(piece)} className={styles.pieceDiv}>
+            <span>{piece.title}</span> <span>{piece.composerLast}</span>
           </div>
         ))
       : "";

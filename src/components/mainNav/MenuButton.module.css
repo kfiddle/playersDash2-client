@@ -1,0 +1,16 @@
+.menuText {
+  color: rgb(58, 78, 96);
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.iconDiv {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: .25rem;
+}
+
+.icon {
+  color: rgb(58, 78, 96);
+}

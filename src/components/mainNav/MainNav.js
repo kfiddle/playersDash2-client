@@ -7,6 +7,7 @@ import { authActions } from "../../store/Auth";
 import { VscMenu } from "react-icons/vsc";
 
 import styles from "./MainNav.module.css";
+import MenuButton from "./MenuButton";
 
 const MainNav = () => {
   const auth = useSelector((state) => state.auth);
@@ -27,26 +28,12 @@ const MainNav = () => {
         <h2>Gigs</h2>
       </div>
       <div className={styles.iconDiv}>
+        <MenuButton />
         {/* <Chip classes={{background:'red'}} label="MENU" icon={<VscMenu />} /> */}
 
-        <button className={styles.menuButton} onClick={logoutHandler}>
+        {/* <button className={styles.menuButton} onClick={logoutHandler}>
           MENU <VscMenu className={styles.menuIcon} />
-        </button>
-
-        {/* <PopupState variant="popover" popupId="demo-popup-menu">
-          {(popupState) => (
-            <React.Fragment>
-              <Button variant="contained" {...bindTrigger(popupState)}>
-                Dashboard
-              </Button>{" "}
-              <Menu {...bindMenu(popupState)}>
-                <MenuItem onClick={popupState.close}>Profile</MenuItem>
-                <MenuItem onClick={popupState.close}>My account</MenuItem>
-                <MenuItem onClick={popupState.close}>Logout</MenuItem>
-              </Menu>
-            </React.Fragment>
-          )}
-        </PopupState> */}
+        </button> */}
       </div>
     </header>
   ) : (

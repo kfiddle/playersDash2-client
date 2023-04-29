@@ -8,8 +8,6 @@
   top: 0;
   padding: 5% 0%;
   background: #aeaaaa;
-
-  /* background: rgb(123, 150, 199); */
 }
 
 h2 {
@@ -111,9 +109,3 @@ h2 {
 .navItem {
   cursor: pointer;
 }
-
-/* @media (max-width: 600px) {
-      .header {
-        background: rebeccapurple;
-      }
-    } */
