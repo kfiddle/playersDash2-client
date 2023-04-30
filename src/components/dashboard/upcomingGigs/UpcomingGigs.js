@@ -8,6 +8,7 @@ import UpcomingGig from "./upcomingGig/UpcomingGig";
 
 const UpcomingGigs = () => {
   const [gigs, setGigs] = useState([]);
+  const [refreshGigs, setRefreshGigs] = useState(false);
   const auth = useSelector((state) => state.auth);
   const allGigs = useSelector((state) => state.gigs);
   const { loggedInPlayer } = auth;
@@ -20,10 +21,14 @@ const UpcomingGigs = () => {
         `players/gigs-of-player/${loggedInPlayer.id}`
       );
       if (playerGigs.length > 0) setGigs(playerGigs);
+      setRefreshGigs(false);
     };
 
+    if (refreshGigs) {
+      getGigs();
+    }
     getGigs();
-  }, []);
+  }, [refreshGigs]);
 
   const gigsCopy = [...gigs];
   const sortedGigs = gigsCopy.sort((gig1, gig2) => {
@@ -43,7 +48,13 @@ const UpcomingGigs = () => {
             if (gig1Date > gig2Date) return 1;
             return 0;
           })
-          .map((gig) => <UpcomingGig key={gigs.indexOf(gig)} gig={gig} />)
+          .map((gig) => (
+            <UpcomingGig
+              key={gigs.indexOf(gig)}
+              gig={gig}
+              setRefreshGigs={setRefreshGigs}
+            />
+          ))
       : "";
 
   return <div className={styles.outerContainer}>{displayableGigs}</div>;

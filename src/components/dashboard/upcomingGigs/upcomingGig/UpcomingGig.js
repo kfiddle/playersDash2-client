@@ -20,8 +20,8 @@ import { GIG_DETAILS } from "../../../../constants/Constants";
 import styles from "./UpcomingGig.module.css";
 import CancelModal from "../../../UI/CancelModal";
 
-const UpcomingGig = ({ gig }) => {
-  const { title, date, venue, address, parking, dress } = gig;
+const UpcomingGig = ({ gig, setRefreshGigs }) => {
+  const { id, title, date, venue, address, parking, dress } = gig;
   const [detailsClicked, setDetailsClicked] = useState(false);
   const [cancelClicked, setCancelClicked] = useState(false);
 
@@ -48,6 +48,7 @@ const UpcomingGig = ({ gig }) => {
   };
 
   const handleCloser = () => {
+    setRefreshGigs(true);
     setDetailsClicked(false);
     setCancelClicked(false);
   };
@@ -87,7 +88,7 @@ const UpcomingGig = ({ gig }) => {
           gig={gig}
         />
       )}
-      {cancelClicked && <CancelModal handleCloser={handleCloser} />}
+      {cancelClicked && <CancelModal handleCloser={handleCloser} gigId={id} />}
     </Fragment>
   );
 };

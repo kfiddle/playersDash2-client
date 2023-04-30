@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -6,13 +8,20 @@ import useGet from "../../hooks/useGet";
 
 import styles from "./CancelModal.module.css";
 
-const CancelModal = ({ handleCloser }) => {
+const CancelModal = ({ handleCloser, gigId }) => {
+  const auth = useSelector((state) => state.auth);
+  const { loggedInPlayer } = auth;
+
   const getter = useGet();
 
   const handleClose = () => handleCloser();
 
   const handleCancel = async () => {
-    const testing = await getter(`players/clear-row`);
+    handleCloser();
+
+    const testing = await getter(
+      `players/cancel-gig/${loggedInPlayer.id}/${gigId}`
+    );
   };
 
   return (
