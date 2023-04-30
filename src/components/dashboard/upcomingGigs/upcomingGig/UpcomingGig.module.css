@@ -5,18 +5,23 @@
   justify-content: space-between;
 }
 
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
+}
+
 .optionsButton {
   width: fit-content;
   background: none;
   color: rgb(227, 212, 212);
   border: 3px solid rgb(227, 212, 212);
   padding: 0px 8px;
-  margin: 1rem;
-  border-radius: 100px;
+  margin: 1rem 1rem 0rem 1rem;
+  border-radius: 12px;
   /* font-size: 14px; */
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  float: right;
+  /* float: right; */
   transition: all 0.25s ease-out;
 }

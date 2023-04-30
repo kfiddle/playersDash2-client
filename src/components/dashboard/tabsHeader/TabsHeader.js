@@ -21,7 +21,7 @@ const TabsHeader = ({ chosenTab, setChosenTab }) => {
           Upcoming Gigs
         </li>
       </div>
-      <div>
+      <div className={styles.tabDiv}>
         <li
           onClick={clickedTabHandler("gigOffers")}
           className={classNameFunc("gigOffers")}

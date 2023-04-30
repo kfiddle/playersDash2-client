@@ -28,7 +28,7 @@ const UpcomingGig = ({ gig, setRefreshGigs }) => {
   const accordStyles = {
     background: "#3A4E60",
     color: "#aeaaaa",
-    margin: "0.5rem",
+    // margin: "0.5rem",
     fontWeight: "700",
   };
 
@@ -71,12 +71,14 @@ const UpcomingGig = ({ gig, setRefreshGigs }) => {
             <div>{venue}</div>
             <div>DRESS: {dress}</div>
             <div>PARKING: {parking}</div>
-            <button className={styles.optionsButton} onClick={detailsClicker}>
-              DETAILS
-            </button>
-            <button className={styles.optionsButton} onClick={cancelClicker}>
-              CANCEL GIG
-            </button>
+            <div className={styles.buttonsDiv}>
+              <button className={styles.optionsButton} onClick={detailsClicker}>
+                DETAILS
+              </button>
+              <button className={styles.optionsButton} onClick={cancelClicker}>
+                CANCEL GIG
+              </button>
+            </div>
           </AccordionDetails>
         </Accordion>
       </Card>

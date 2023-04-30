@@ -12,7 +12,9 @@ const Dashboard = () => {
 
   return (
     <div>
-      <TabsHeader chosenTab={chosenTab} setChosenTab={setChosenTab} />
+      <div>
+        <TabsHeader chosenTab={chosenTab} setChosenTab={setChosenTab} />
+      </div>
 
       {chosenTab === UPCOMING_GIGS && <UpcomingGigs />}
     </div>

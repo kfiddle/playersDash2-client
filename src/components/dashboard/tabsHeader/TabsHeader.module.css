@@ -1,10 +1,13 @@
 .ul {
+  position: fixed;
+  width: 100%;
+  top: 6rem;
   list-style: none;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  transform: translateY(0.4rem);
-  padding: 0;
+  background: #aeaaaa;
+  z-index: 5;
+  padding-bottom: 1rem;
 }
 
 .li {
@@ -17,4 +20,11 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 1rem;
+}
+
+.tabDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
