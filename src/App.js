@@ -21,16 +21,24 @@ function App() {
   const getter = useGet();
 
   useEffect(() => {
-    const getAllGigs = async () => {
-      const gigsResponse = await getter("gigs");
-      if (gigsResponse) {
-        const jsonifiedGigs = await gigsResponse.json();
-        console.log(jsonifiedGigs);
-        dispatch(gigsActions.setGigs(jsonifiedGigs));
-      }
+    // const getAllGigs = async () => {
+    //   const gigsResponse = await getter("gigs");
+    //   if (gigsResponse) {
+    //     const jsonifiedGigs = await gigsResponse.json();
+    //     console.log(jsonifiedGigs);
+    //     dispatch(gigsActions.setGigs(jsonifiedGigs));
+    //   }
+    // };
+
+    const backendTest = async () => {
+      const response = await fetch(
+        process.env.REACT_APP_HEROKU_URL + "library"
+      );
+      console.log(response.text());
     };
 
-    getAllGigs();
+    backendTest();
+    // getAllGigs();
   }, []);
 
   return (

@@ -1,2 +1,3 @@
+export const backendUrl = "https://limitless-atoll-73078.herokuapp.com/";
 
-export const backendUrl = "http://localhost:5000/"
+// "http://localhost:5000/"
